@@ -15,7 +15,7 @@
  *
  */
 
-package org.laokou.edge.gty;
+package org.laokou.webflux.edge.gateway;
 
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.WebApplicationType;
@@ -30,7 +30,7 @@ import org.springframework.util.StopWatch;
  */
 @Slf4j
 @EnableConfigurationProperties
-@SpringBootApplication(scanBasePackages = "org.laokou.edge.gty")
+@SpringBootApplication(scanBasePackages = "org.laokou.webflux.edge.gateway")
 class GatewayApp {
 
 	// @formatter:off
