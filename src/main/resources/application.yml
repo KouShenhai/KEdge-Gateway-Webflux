@@ -1,2 +1,8 @@
 server:
   port: 9800
+
+gateway:
+  security:
+    username: ${GATEWAY_USERNAME:admin}
+    # Empty means a temporary password is generated and logged at startup.
+    password: ${GATEWAY_PASSWORD:}
