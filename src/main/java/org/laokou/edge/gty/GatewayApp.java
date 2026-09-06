@@ -15,8 +15,9 @@
  *
  */
 
-package org.laokou.gateway;
+package org.laokou.edge.gty;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.WebApplicationType;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.builder.SpringApplicationBuilder;
@@ -27,8 +28,9 @@ import org.springframework.util.StopWatch;
  *
  * @author laokou
  */
+@Slf4j
 @EnableConfigurationProperties
-@SpringBootApplication(scanBasePackages = "org.laokou.gateway")
+@SpringBootApplication(scanBasePackages = "org.laokou.edge.gty")
 class GatewayApp {
 
 	// @formatter:off
@@ -37,6 +39,7 @@ class GatewayApp {
 		stopWatch.start();
 		new SpringApplicationBuilder(GatewayApp.class).web(WebApplicationType.REACTIVE).run(args);
 		stopWatch.stop();
+		log.info("{}", stopWatch.prettyPrint());
 	}
 	// @formatter:on
 
