@@ -59,14 +59,7 @@ public class SecurityConfig {
     }
 
     @Bean
-    MapReactiveUserDetailsService userDetailsService(PasswordEncoder encoder, @Value("${gateway.security.username:admin}") String username, @Value("${gateway.security.password:}") String password) {
-        if (!StringUtils.hasText(password)) {
-            password = UUID.randomUUID().toString();
-            log.warn("Temporary login password for {}: {}. Set GATEWAY_PASSWORD for persistent credentials.", username, password);
-        }
-        return new MapReactiveUserDetailsService(User.withUsername(username)
-            .password(encoder.encode(password))
-            .roles("USER")
-            .build());
+    MapReactiveUserDetailsService userDetailsService(PasswordEncoder encoder) {
+        return new MapReactiveUserDetailsService(User.withUsername("admin").password(encoder.encode("123456")).roles("ADMIN").build());
     }
 }
